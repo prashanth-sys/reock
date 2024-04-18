@@ -79,9 +79,9 @@ class RockPaperGame extends Component {
       return 'IT IS DRAW'
     }
     if (
-      (selectedImage.id === 'ROCK' && opponentImage.id === 'SCISSORS') ||
+      (selectedImage.id === 'ROCK' && opponentImage.id === 'SCISSOR') ||
       (selectedImage.id === 'PAPER' && opponentImage.id === 'ROCK') ||
-      (selectedImage.id === 'SCISSORS' && opponentImage.id === 'PAPER')
+      (selectedImage.id === 'SCISSOR' && opponentImage.id === 'PAPER')
     ) {
       return 'YOU WON'
     }
