@@ -7,6 +7,8 @@ import RockPaperHomePage from './components/RockPaperHomePage'
 import RockPaperGame from './components/RockPaperGame'
 import EmojiHome from './components/EmojiHome'
 import EmojiGame from './components/EmojiGame'
+import FlipHome from './components/FlipHome'
+import FlipGame from './components/FlipGame'
 
 import './App.css'
 
@@ -19,6 +21,8 @@ const App = () => (
     <Route exact path="/rock/paper/game" component={RockPaperGame} />
     <Route exact path="/emoji-game" component={EmojiHome} />
     <Route exact path="/emoji-show-game" component={EmojiGame} />
+    <Route exact path="/card-flip-memory-game" component={FlipHome} />
+    <Route exact path="/flip-game" component={FlipGame} />
   </Switch>
 )
 

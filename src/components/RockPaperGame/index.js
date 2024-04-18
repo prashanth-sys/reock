@@ -30,7 +30,7 @@ class RockPaperGame extends Component {
     selectedImage: null,
     opponentImage: null,
     result: null,
-    resultAlt: '', // Added state to store alt attribute value for the result image
+    resultAlt: '',
     isModelOpen: false,
   }
 
@@ -46,7 +46,6 @@ class RockPaperGame extends Component {
     const result = this.determineResult(image, opponentImage)
     let resultAlt = ''
 
-    // Set the alt attribute value based on the game outcome
     if (result === 'YOU WON') {
       resultAlt = 'opponent choice'
     } else if (result === 'IT IS DRAW') {
@@ -179,7 +178,7 @@ class RockPaperGame extends Component {
                 {result === 'YOU LOSE' && (
                   <img
                     src="https://res.cloudinary.com/dlsuy2qn2/image/upload/v1713253521/Emoji_2_acby57.png"
-                    alt="Face without mouth"
+                    alt={resultAlt}
                     className="result-emoji-show"
                   />
                 )}
@@ -222,7 +221,7 @@ class RockPaperGame extends Component {
                   <h1 className="game-heading">YOU</h1>
                   <img
                     src={selectedImage.imageUrl}
-                    alt="your choice"
+                    alt={`${selectedImage.id} choice`}
                     className="selected-image"
                   />
                 </div>
@@ -230,7 +229,7 @@ class RockPaperGame extends Component {
                   <h1 className="game-heading">OPPONENT</h1>
                   <img
                     src={opponentImage.imageUrl}
-                    alt={resultAlt}
+                    alt={`${opponentImage.id} choice`}
                     className="selected-image"
                   />
                 </div>
