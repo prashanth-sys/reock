@@ -6,6 +6,7 @@ import MatrixHomePage from './components/MatrixHomePage'
 import RockPaperHomePage from './components/RockPaperHomePage'
 import RockPaperGame from './components/RockPaperGame'
 import EmojiHome from './components/EmojiHome'
+import EmojiGame from './components/EmojiGame'
 
 import './App.css'
 
@@ -17,6 +18,7 @@ const App = () => (
     <Route exact path="/rock-paper-scissor" component={RockPaperHomePage} />
     <Route exact path="/rock/paper/game" component={RockPaperGame} />
     <Route exact path="/emoji-game" component={EmojiHome} />
+    <Route exact path="/emoji-show-game" component={EmojiGame} />
   </Switch>
 )
 

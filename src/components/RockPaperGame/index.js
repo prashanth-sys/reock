@@ -30,6 +30,7 @@ class RockPaperGame extends Component {
     selectedImage: null,
     opponentImage: null,
     result: null,
+    resultAlt: '', // Added state to store alt attribute value for the result image
     isModelOpen: false,
   }
 
@@ -43,11 +44,23 @@ class RockPaperGame extends Component {
   onClickResultsView = image => {
     const opponentImage = this.getRandomOpponentImage()
     const result = this.determineResult(image, opponentImage)
+    let resultAlt = ''
+
+    // Set the alt attribute value based on the game outcome
+    if (result === 'YOU WON') {
+      resultAlt = 'opponent choice'
+    } else if (result === 'IT IS DRAW') {
+      resultAlt = 'draw'
+    } else {
+      resultAlt = image.id.toLowerCase()
+    }
+
     this.setState({
       isShow: false,
       selectedImage: image,
       opponentImage,
       result,
+      resultAlt, // Set the state to store the alt attribute value for the result image
     })
   }
 
@@ -97,7 +110,6 @@ class RockPaperGame extends Component {
     }
   }
 
-  // Method to toggle modal open/close state
   toggleModal = () => {
     this.setState(prevState => ({
       isModelOpen: !prevState.isModelOpen,
@@ -112,6 +124,7 @@ class RockPaperGame extends Component {
       selectedImage,
       opponentImage,
       result,
+      resultAlt,
     } = this.state
 
     return (
@@ -217,7 +230,7 @@ class RockPaperGame extends Component {
                   <h1 className="game-heading">OPPONENT</h1>
                   <img
                     src={opponentImage.imageUrl}
-                    alt="opponent choice"
+                    alt={resultAlt}
                     className="selected-image"
                   />
                 </div>
